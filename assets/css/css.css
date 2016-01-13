@@ -1,0 +1,27 @@
+body {
+    background: url(../img/effect_micromov.gif) no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+* {
+	margin-top:20%;
+	text-align: center;
+	font-family:fantasy;
+}
+.inputs{
+	color:green;
+	border-radius:250px;
+}
+input:focus{
+	background-color:white;
+	color:#558000;
+	font-family:fantasy;
+}
+.negro {
+	background-color: black;
+	width:100%;
+	height: 200px;
+}
