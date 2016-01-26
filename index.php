@@ -38,18 +38,33 @@
 </div>
 
   </body>
-   <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/what-input.min.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
+   <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/vendor/what-input.min.js"></script>
+    <script src="assets/js/foundation.min.js"></script>
+    <script src="assets/js/app.js"></script>
     <script type="text/javascript">
+    function faceBookLoginCheck(object, FB){
+      if(object.status == "not_authorized"){
+          FB.login(function(response) {
+            console.log(response);
+        }, {scope: 'email,user_likes'});
+      }
+    }
+
       window.fbAsyncInit = function() {
+        window.FB = FB;
         FB.init({
           appId      : '675979259211293',
           xfbml      : true,
           version    : 'v2.5'
         });
+        
+        FB.getLoginStatus(function(response) {
+          faceBookLoginCheck(response, FB);
+        });
+
       };
+
 
       (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
@@ -58,5 +73,7 @@
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+    
     </script>
 </html>
